@@ -1,0 +1,18 @@
+package model;
+
+import java.math.BigDecimal;
+import java.sql.Date;
+
+public class Transaction {
+	
+	private int id;
+	private Date date;
+	
+	private BigDecimal amount;
+	
+	private Account account;
+	
+	private Employee teller;	
+
+}
+
