@@ -51,4 +51,19 @@ public class Transaction {
 		this.teller = teller;
 	}
 
+	@Override
+	public String toString() {
+		return "Transaction [id=" + id + ", date=" + date + ", amount=" + amount + ", account=" + account + ", teller="
+				+ teller + "]";
+	}
+
+	public Transaction(int id, Date date, BigDecimal amount, Account account, Employee teller) {
+		super();
+		this.id = id;
+		this.date = date;
+		this.amount = amount;
+		this.account = account;
+		this.teller = teller;
+	}
+
 }
