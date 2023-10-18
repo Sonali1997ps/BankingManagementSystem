@@ -31,5 +31,17 @@ public class Branch {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+
+	@Override
+	public String toString() {
+		return "Branch [id=" + id + ", address=" + address + ", phone=" + phone + "]";
+	}
+
+	public Branch(String id, String address, String phone) {
+		super();
+		this.id = id;
+		this.address = address;
+		this.phone = phone;
+	}
 }
 
