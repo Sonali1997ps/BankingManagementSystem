@@ -43,5 +43,12 @@ public class Branch {
 		this.address = address;
 		this.phone = phone;
 	}
+
+	public Branch() {
+		// TODO Auto-generated constructor stub
+		this.id = "";
+		this.address = "";
+		this.phone = "";
+	}
 }
 

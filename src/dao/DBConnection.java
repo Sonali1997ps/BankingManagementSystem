@@ -50,13 +50,29 @@ public class DBConnection {
 
 	}
 
+	public int update(String query) throws SQLException {
+		
+		System.out.println("Updated table ");
+		return stmt.executeUpdate(query);
+		
+	}
+
+	public void remove(String tableName, String columnName, String value) throws SQLException {
+		
+		stmt.executeUpdate("delete from " + tableName + " where " + columnName + " = " + value);
+		System.out.println("deleted entry for " + columnName +" = "+ value + " from table " + tableName);
+		
+	}
+	
+	
 	public ResultSet getResultSet(String tableName, String columnName, String value) throws SQLException {
-        ArrayList columnNames = new ArrayList();
-        ArrayList data = new ArrayList();
+
 		ResultSet rs=stmt.executeQuery("select * from " + tableName + " where " + columnName + " = " + value);
 
-	
 		return rs;
+	}	
+//      ArrayList columnNames = new ArrayList();
+//      ArrayList data = new ArrayList();
 //		ResultSetMetaData md = rs.getMetaData();
 //        int columns = md.getColumnCount();
 //        //  Get column names
@@ -76,5 +92,5 @@ public class DBConnection {
 //            System.out.println(row);
 ////            data.add(row);
 //        }
-	}
+	
 }

@@ -4,7 +4,7 @@ import model.Employee;
 
 public interface EmployeeDAO {
 
-	Employee createEmployee(Employee employee);
+	int createEmployee(Employee employee);
 	
 	boolean updateEmployee(Employee employee);
 	

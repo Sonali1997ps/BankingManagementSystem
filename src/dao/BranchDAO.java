@@ -1,15 +1,17 @@
 package dao;
 
+import java.sql.SQLException;
+
 import model.Branch;
 
 public interface BranchDAO {
 	
-	int createBranch(Branch branch);
+	int createBranch(Branch branch) throws SQLException;
 	
-	void updateBranch(Branch branch);
+	int updateBranch(Branch branch) throws SQLException;
 
-    void removeBranch(int branch_id);
+    void removeBranch(String branch_id) throws SQLException;
     
-    Branch getBranchById(int branch_id);
+    Branch getBranchById(String branch_id) throws SQLException;
 
 }

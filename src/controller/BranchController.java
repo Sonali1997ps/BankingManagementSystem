@@ -1,38 +1,35 @@
 package controller;
 
+import java.sql.SQLException;
 import java.util.List;
 
+import dao.BranchDAO;
+import dao.BranchDAOImpl;
 import model.Branch;
-import model.Employee;
 
 public class BranchController {
-	public Branch createBranch(){
+	BranchDAO branchDaoImpl = new BranchDAOImpl();
+	public int createBranch(Branch branch) throws SQLException{
 	
-		return null;
+		return branchDaoImpl.createBranch(branch);
 		
 	}
 	
-	public boolean updateBranch(){
+	public int updateBranch(Branch branch) throws SQLException{
 	
-		return false;
+		return branchDaoImpl.updateBranch(branch);
 		
 	}
 	
-	public boolean removeBranch(){
-		
-		return false;
-		
-	}
-	
-	public String getBranchDetails(){
-	
-		return null;
+	public void removeBranch(String branchId) throws SQLException{
+			
+		branchDaoImpl.removeBranch(branchId);
 		
 	}
 	
-	public List<Employee> getBranchEmployees(){
+	public Branch getBranchDetails(String branchId) throws SQLException{
 	
-		return null;
+		return branchDaoImpl.getBranchById(branchId);
 		
 	}
 	
