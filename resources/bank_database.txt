@@ -3,8 +3,46 @@ CREATE TABLE `account_type` (
   `description` varchar(50) DEFAULT NULL,
   `interestRate` int DEFAULT NULL,
   PRIMARY KEY (`account_type_id`)
-)
+);
 
+CREATE TABLE `transaction_type` (
+  `transaction_type_id` int NOT NULL,
+  `description` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`transaction_type_id`)
+);
+
+CREATE TABLE `loan_type` (
+  `loan_type_id` int NOT NULL,
+  `description` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`loan_type_id`)
+);
+
+CREATE TABLE `branch` (
+  `branch_id` varchar(50) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `phone` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`branch_id`)
+);
+
+
+CREATE TABLE `failed_transaction` (
+  `transaction_id` int NOT NULL,
+  `error_type` varchar(50) DEFAULT NULL,
+  `timestamp` datetime DEFAULT NULL,
+  PRIMARY KEY (`transaction_id`)
+);
+
+
+CREATE TABLE `customer` (
+  `customer_id` int NOT NULL,
+  `login_id` int NOT NULL,
+  `password` varchar(30) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `phone` int DEFAULT NULL,
+  `email_id` varchar(50) DEFAULT NULL,
+  `registration_date` date DEFAULT NULL,
+  PRIMARY KEY (`customer_id`)
+);
 
 
 CREATE TABLE `accounts` (
@@ -21,57 +59,7 @@ CREATE TABLE `accounts` (
   CONSTRAINT `accounts_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`),
   CONSTRAINT `accounts_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `branch` (`branch_id`),
   CONSTRAINT `accounts_ibfk_3` FOREIGN KEY (`account_type_id`) REFERENCES `account_type` (`account_type_id`)
-)
-
-
-
-CREATE TABLE `branch` (
-  `branch_id` varchar(50) NOT NULL,
-  `address` varchar(50) NOT NULL,
-  `phone` int DEFAULT NULL,
-  PRIMARY KEY (`branch_id`)
-)
-
-
-
-
-CREATE TABLE `customer` (
-  `customer_id` int NOT NULL,
-  `login_id` int NOT NULL,
-  `password` varchar(30) DEFAULT NULL,
-  `name` varchar(50) DEFAULT NULL,
-  `phone` int DEFAULT NULL,
-  `email_id` varchar(50) DEFAULT NULL,
-  `registration_date` date DEFAULT NULL,
-  PRIMARY KEY (`customer_id`)
-)
-
-
-
-CREATE TABLE `employee` (
-  `emp_id` int NOT NULL,
-  `name` varchar(50) DEFAULT NULL,
-  `phone` int DEFAULT NULL,
-  `position` varchar(50) DEFAULT NULL,
-  `branch_id` varchar(50) DEFAULT NULL,
-  `manager_id` int DEFAULT NULL,
-  `login_id` int DEFAULT NULL,
-  PRIMARY KEY (`emp_id`),
-  KEY `branch_id` (`branch_id`),
-  CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `branch` (`branch_id`)
-)
-
-
-
-
-
-CREATE TABLE `failed_transaction` (
-  `transaction_id` int NOT NULL,
-  `error_type` varchar(50) DEFAULT NULL,
-  `timestamp` datetime DEFAULT NULL,
-  PRIMARY KEY (`transaction_id`)
-)
-
+);
 
 
 CREATE TABLE `loan` (
@@ -86,16 +74,7 @@ CREATE TABLE `loan` (
   CONSTRAINT `loan_ibfk_1` FOREIGN KEY (`loan_type_id`) REFERENCES `loan_type` (`loan_type_id`),
   CONSTRAINT `loan_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`),
   CONSTRAINT `loan_ibfk_3` FOREIGN KEY (`branch_id`) REFERENCES `branch` (`branch_id`)
-)
-
-
-
-CREATE TABLE `loan_type` (
-  `loan_type_id` int NOT NULL,
-  `description` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`loan_type_id`)
-)
-
+);
 
 
 CREATE TABLE `overdraft` (
@@ -103,13 +82,24 @@ CREATE TABLE `overdraft` (
   `description` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`account_id`),
   CONSTRAINT `overdraft_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`account_id`)
-)
+);
+CREATE TABLE `employee` (
+  `emp_id` int NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `phone` varchar(15) DEFAULT NULL,
+  `position` varchar(50) DEFAULT NULL,
+  `branch_id` varchar(50) DEFAULT NULL,
+  `manager_id` int DEFAULT NULL,
+  `login_id` int DEFAULT NULL,
+  PRIMARY KEY (`emp_id`),
+  KEY `branch_id` (`branch_id`),
+  CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `branch` (`branch_id`)
+);
 
-
-
-
-CREATE TABLE `transaction_type` (
-  `transaction_type_id` int NOT NULL,
-  `description` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`transaction_type_id`)
-)
+CREATE TABLE `login` (
+  `customer_id` int NOT NULL,
+  `password` varchar(50) DEFAULT NULL,
+  `role` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`customer_id`),
+  CONSTRAINT `login_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`)
+); 
