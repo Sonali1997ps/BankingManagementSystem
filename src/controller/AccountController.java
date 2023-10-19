@@ -21,11 +21,11 @@ public class AccountController {
 		
 	}
 	
-	public List<Account> getAccountsOfCustomer() {
+	public List<Account> getAccountsOfCustomer(int customer_id) {
 		return null;
 	}
 	
-	public String getAccountDetails() {
+	public Account getAccountDetails(int id) {
 		return null;
 	}
 }
