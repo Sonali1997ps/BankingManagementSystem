@@ -96,6 +96,7 @@ CREATE TABLE `employee` (
   CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `branch` (`branch_id`)
 );
 
+
 CREATE TABLE `login` (
   `customer_id` int NOT NULL,
   `password` varchar(50) DEFAULT NULL,
