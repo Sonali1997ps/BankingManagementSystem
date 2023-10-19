@@ -6,9 +6,6 @@ public class Person {
 	
 	private int id;
 	
-	private String login;
-	private int passhash;
-	
 	private String name;
 	private String phone;
 	private String email;
@@ -21,22 +18,6 @@ public class Person {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
-	public int getPasshash() {
-		return passhash;
-	}
-
-	public void setPasshash(int passhash) {
-		this.passhash = passhash;
 	}
 
 	public String getName() {
@@ -71,11 +52,9 @@ public class Person {
 		this.registrationDate = registrationDate;
 	}
 
-	public Person(int id, String login, int passhash, String name, String phone, String email, Date registrationDate) {
+	public Person(int id, String name, String phone, String email, Date registrationDate) {
 		super();
 		this.id = id;
-		this.login = login;
-		this.passhash = passhash;
 		this.name = name;
 		this.phone = phone;
 		this.email = email;
@@ -84,8 +63,8 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "id=" + id + ", login=" + login + ", passhash=" + passhash + ", name=" + name + ", phone="
-				+ phone + ", email=" + email + ", registrationDate=" + registrationDate + "]";
+		return "id=" + id + ", name=" + name + ", phone="+ phone + ", email=" + email + 
+				", registrationDate=" + registrationDate + "]";
 	}
 
 

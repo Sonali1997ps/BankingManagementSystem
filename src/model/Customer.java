@@ -25,12 +25,18 @@ public class Customer extends Person{
 		this.loans = loans;
 	}
 
-	public Customer(int id, String login, int passhash, String name, String phone, String email, Date registrationDate,Set<Account> accounts, Set<Loan> loans) {
-		super(id, login, passhash, name, phone,email, registrationDate);
+	public Customer(int id, String name, String phone, String email, Date registrationDate,Set<Account> accounts, Set<Loan> loans) {
+		super(id, name, phone,email, registrationDate);
 		this.accounts = accounts;
 		this.loans = loans;
 	}
 
+	public Customer() {
+		super(0, "", "", "", null);
+		this.accounts = null;
+		this.loans = null;
+	}
+	
 	@Override
 	public String toString() {
 		return "Customer [accounts=" + accounts + ", loans=" + loans + super.toString() ;

@@ -1,17 +1,17 @@
 package dao;
 
+import java.sql.SQLException;
+
 import model.Employee;
 
 public interface EmployeeDAO {
 
-	int createEmployee(Employee employee);
+	int createEmployee(Employee employee) throws SQLException;
 	
-	boolean updateEmployee(Employee employee);
+	int updateEmployee(String columnName, String value) throws SQLException;
 	
-	boolean removeEmployee(Employee employee);
+	void removeEmployee(String employeeId) throws SQLException;
 	
-	boolean setManager(Employee employee);
-	
-	Employee getEmployeeById(int employe_id);
+	Employee getEmployeeById(String employeeId) throws SQLException;
 	
 }

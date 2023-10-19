@@ -35,8 +35,6 @@ CREATE TABLE `failed_transaction` (
 
 CREATE TABLE `customer` (
   `customer_id` int NOT NULL,
-  `login_id` int NOT NULL,
-  `password` varchar(30) DEFAULT NULL,
   `name` varchar(50) DEFAULT NULL,
   `phone` int DEFAULT NULL,
   `email_id` varchar(50) DEFAULT NULL,

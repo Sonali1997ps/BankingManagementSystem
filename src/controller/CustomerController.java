@@ -1,24 +1,27 @@
 package controller;
 
+import java.sql.SQLException;
 import java.util.List;
 
-import model.Account;
+import dao.CustomerDAO;
+import dao.CustomerDAOImpl;
 import model.Customer;
 
 public class CustomerController {
 	
-	public Customer createCustomer() {
-		return null;
+	CustomerDAO customerDAOImpl = new CustomerDAOImpl();
+	
+	public int createCustomer(Customer customer) throws SQLException {
+		return customerDAOImpl.createCustomer(customer);
 	}
 	
-	public boolean removeCustomer(){
-	
-		return false;
-	
+	public void removeCustomer(String customrId) throws SQLException{
+		customerDAOImpl.removeCustomer(customrId);	
 	}
 	
-	public Customer getCustomerOfAccount(Account account){
+	public Customer getCustomerOfAccount(String accountNumber){
 		
+//		To be implemented in service layer
 		return null;
 		
 	}

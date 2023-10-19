@@ -15,9 +15,9 @@ public class BranchController {
 		
 	}
 	
-	public int updateBranch(Branch branch) throws SQLException{
+	public int updateBranch(String columnName, String value, String branchId) throws SQLException{
 	
-		return branchDaoImpl.updateBranch(branch);
+		return branchDaoImpl.updateBranch(columnName, value, branchId);
 		
 	}
 	

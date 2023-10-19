@@ -6,9 +6,9 @@ public class Employee extends Person{
 	
 	private String position;
 	
-	private Employee manager;
+	private String managerId;
 	
-	private Branch branch;
+	private String branchId;
 
 	public String getPosition() {
 		return position;
@@ -18,33 +18,40 @@ public class Employee extends Person{
 		this.position = position;
 	}
 
-	public Employee getManager() {
-		return manager;
+	public String getManagerId() {
+		return managerId;
 	}
 
-	public void setManager(Employee manager) {
-		this.manager = manager;
+	public void setManagerId(String managerId) {
+		this.managerId = managerId;
 	}
 
-	public Branch getBranch() {
-		return branch;
+	public String getBranchId() {
+		return branchId;
 	}
 
-	public void setBranch(Branch branch) {
-		this.branch = branch;
+	public void setBranchId(String branchId) {
+		this.branchId = branchId;
 	}
 
-	public Employee(int id, String login, int passhash, String name, String phone, String email, Date registrationDate,
-			String position, Employee manager, Branch branch) {
-		super(id, login, passhash, name, phone, email, registrationDate);
+	public Employee(int id, String name, String phone, String email, Date registrationDate,
+			String position, String managerId, String branchId) {
+		super(id, name, phone, email, registrationDate);
 		this.position = position;
-		this.manager = manager;
-		this.branch = branch;
+		this.managerId = managerId;
+		this.branchId = branchId;
+	}
+
+	public Employee() {
+		super(0, "", "", "", null);
+		this.position = "";
+		this.managerId = "";
+		this.branchId = "";
 	}
 
 	@Override
 	public String toString() {
-		return "Employee [position=" + position + ", manager=" + manager + ", branch=" + branch + super.toString();
+		return "Employee [position=" + position + ", managerId=" + managerId + ", branchId=" + branchId + super.toString();
 	}
 	
 }
