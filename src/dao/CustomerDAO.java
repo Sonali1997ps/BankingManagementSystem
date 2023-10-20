@@ -10,10 +10,10 @@ public interface CustomerDAO {
 	
 	int createCustomer(Customer customer) throws SQLException;
 	
-	void removeCustomer(String customerID)throws SQLException;
+	void removeCustomer(int customerID)throws SQLException;
 	
-	int updateCustomer(String columnName, String value)throws SQLException;
+	int updateCustomer(String columnName, int value, int customerId)throws SQLException;
 	
-	Customer findCustomerByID(String customer_id)throws SQLException;
+	Customer findCustomerByID(int customer_id)throws SQLException;
 	
 }

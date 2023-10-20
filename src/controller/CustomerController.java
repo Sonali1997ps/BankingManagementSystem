@@ -15,25 +15,22 @@ public class CustomerController {
 		return customerDAOImpl.createCustomer(customer);
 	}
 	
-	public void removeCustomer(String customrId) throws SQLException{
+	public void removeCustomer(int customrId) throws SQLException{
 		customerDAOImpl.removeCustomer(customrId);	
 	}
 	
-	public Customer getCustomerOfAccount(String accountNumber){
+	public Customer getCustomerOfAccount(int accountId){
 		
 //		To be implemented in service layer
-		return null;
-		
+		return null;		
 	}
 	
 	public Customer findCustomerByID(int id) {
-		return null;
-		
+		return null;	
 	}
 	
 	public List<Customer> findCustomersByName(String name) {
 		return null;
-		
 	}	
 }
 

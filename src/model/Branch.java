@@ -2,17 +2,17 @@ package model;
 
 public class Branch {
 	
-	private String id;
+	private int id;
 	
 	private String address;
 	
 	private String phone;
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -37,7 +37,7 @@ public class Branch {
 		return "Branch [id=" + id + ", address=" + address + ", phone=" + phone + "]";
 	}
 
-	public Branch(String id, String address, String phone) {
+	public Branch(int id, String address, String phone) {
 		super();
 		this.id = id;
 		this.address = address;
@@ -46,7 +46,7 @@ public class Branch {
 
 	public Branch() {
 		// TODO Auto-generated constructor stub
-		this.id = "";
+		this.id = 0;
 		this.address = "";
 		this.phone = "";
 	}

@@ -15,19 +15,19 @@ public class BranchController {
 		
 	}
 	
-	public int updateBranch(String columnName, String value, String branchId) throws SQLException{
+	public int updateBranch(String columnName, String value, int branchId) throws SQLException{
 	
 		return branchDaoImpl.updateBranch(columnName, value, branchId);
 		
 	}
 	
-	public void removeBranch(String branchId) throws SQLException{
+	public void removeBranch(int branchId) throws SQLException{
 			
 		branchDaoImpl.removeBranch(branchId);
 		
 	}
 	
-	public Branch getBranchDetails(String branchId) throws SQLException{
+	public Branch getBranchDetails(int branchId) throws SQLException{
 	
 		return branchDaoImpl.getBranchById(branchId);
 		

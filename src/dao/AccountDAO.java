@@ -9,10 +9,10 @@ public interface AccountDAO {
 	
 	int createAccount(Account account) throws SQLException;
 
-	int updateAccount(String columnName, String value, String branchId) throws SQLException;
+	int updateAccount(String columnName, String value, int branchId) throws SQLException;
 
-    void removeAccount(String accountId) throws SQLException;
+    void removeAccount(int accountId) throws SQLException;
     
-    Account getAccountDetails(String accountId) throws SQLException;
+    Account getAccountDetails(int accountId) throws SQLException;
 
 }

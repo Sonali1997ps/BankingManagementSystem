@@ -8,10 +8,10 @@ public interface BranchDAO {
 	
 	int createBranch(Branch branch) throws SQLException;
 
-    void removeBranch(String branch_id) throws SQLException;
+    void removeBranch(int branch_id) throws SQLException;
     
-    Branch getBranchById(String branch_id) throws SQLException;
+    Branch getBranchById(int branch_id) throws SQLException;
 
-	int updateBranch(String columnName, String value, String branchId) throws SQLException;
+	int updateBranch(String columnName, String value, int branchId) throws SQLException;
 
 }

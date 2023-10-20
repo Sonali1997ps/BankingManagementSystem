@@ -5,11 +5,11 @@ import java.sql.Date;
 
 public class Loan {
 
-	private int id;
+	private int loanId;
 	
-	private Customer customer;
+	private int customerId;
 	
-	private Branch branch;
+	private int branchId;
 	
 	private Date startingDate;
 	
@@ -17,28 +17,28 @@ public class Loan {
 	
 	private BigDecimal amount;
 
-	public int getId() {
-		return id;
+	public int getLoanId() {
+		return loanId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setLoanId(int loanId) {
+		this.loanId = loanId;
 	}
 
-	public Customer getCustomer() {
-		return customer;
+	public int getCustomerId() {
+		return customerId;
 	}
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
 	}
 
-	public Branch getBranch() {
-		return branch;
+	public int getBranchId() {
+		return branchId;
 	}
 
-	public void setBranch(Branch branch) {
-		this.branch = branch;
+	public void setBranchId(int branchId) {
+		this.branchId = branchId;
 	}
 
 	public Date getStartingDate() {
@@ -65,11 +65,11 @@ public class Loan {
 		this.amount = amount;
 	}
 
-	public Loan(int id, Customer customer, Branch branch, Date startingDate, Date dueDate, BigDecimal amount) {
+	public Loan(int loanId, int customerId, int branchId, Date startingDate, Date dueDate, BigDecimal amount) {
 		super();
-		this.id = id;
-		this.customer = customer;
-		this.branch = branch;
+		this.loanId = loanId;
+		this.customerId = customerId;
+		this.branchId = branchId;
 		this.startingDate = startingDate;
 		this.dueDate = dueDate;
 		this.amount = amount;
@@ -77,8 +77,9 @@ public class Loan {
 
 	@Override
 	public String toString() {
-		return "Loan [id=" + id + ", customer=" + customer + ", branch=" + branch + ", startingDate=" + startingDate
-				+ ", dueDate=" + dueDate + ", amount=" + amount + "]";
+		return "Loan [loanId=" + loanId + ", customerId=" + customerId + ", branchId=" + branchId + ", startingDate="
+				+ startingDate + ", dueDate=" + dueDate + ", amount=" + amount + "]";
 	}
+
 	
 }

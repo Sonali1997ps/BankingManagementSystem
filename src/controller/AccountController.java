@@ -13,11 +13,11 @@ public class AccountController {
 		return accountDAOImpl.createAccount(account);
 	}
 	
-	public int updateAccount(String columnName, String value, String accountId) throws SQLException{
+	public int updateAccount(String columnName, String value, int accountId) throws SQLException{
 		return accountDAOImpl.updateAccount(columnName, value, accountId);		
 	}
 	
-	public void removeAccount(String accountId) throws SQLException{
+	public void removeAccount(int accountId) throws SQLException{
 		accountDAOImpl.removeAccount(accountId);
 	}
 	
@@ -26,7 +26,7 @@ public class AccountController {
 		return null;
 	}
 	
-	public Account getAccountDetails(String accountId) throws SQLException {
+	public Account getAccountDetails(int accountId) throws SQLException {
 		return accountDAOImpl.getAccountDetails(accountId);
 	}
 }

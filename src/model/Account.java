@@ -5,7 +5,7 @@ import java.sql.Date;
 
 public class Account {
 	
-	private String id;
+	private int id;
 	
 	private String customerId;
 	
@@ -20,7 +20,7 @@ public class Account {
 
 	public Account() {
 		super();
-		this.id = "";
+		this.id = 0;
 		this.customerId = "";
 		this.branchId = "";
 		this.openingDate = null;
@@ -28,7 +28,7 @@ public class Account {
 		this.accontTypeId = "";
 	}
 
-	public Account(String id, String customerId, String branchId, Date openingDate, BigDecimal currentBalance,
+	public Account(int id, String customerId, String branchId, Date openingDate, BigDecimal currentBalance,
 			String accontTypeId) {
 		super();
 		this.id = id;
@@ -45,11 +45,11 @@ public class Account {
 				+ openingDate + ", currentBalance=" + currentBalance + ", accontTypeId=" + accontTypeId + "]";
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

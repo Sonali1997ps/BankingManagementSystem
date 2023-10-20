@@ -12,11 +12,11 @@ public class EmployeeController {
 		return employeeDAOImpl.createEmployee(employee);		
 	}
 	
-	public int updateEmployee(String columnName, String value) throws SQLException{
-		return employeeDAOImpl.updateEmployee(columnName, value);		
+	public int updateEmployee(String columnName, int value, int employeeId) throws SQLException{
+		return employeeDAOImpl.updateEmployee(columnName, value, employeeId);		
 	}
 	
-	public void removeEmployee(String employeeId) throws SQLException{
+	public void removeEmployee(int employeeId) throws SQLException{
 		employeeDAOImpl.removeEmployee(employeeId);
 	}
 	

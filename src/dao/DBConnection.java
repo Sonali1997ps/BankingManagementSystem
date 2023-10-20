@@ -57,7 +57,7 @@ public class DBConnection {
 		
 	}
 
-	public void remove(String tableName, String columnName, String value) throws SQLException {
+	public void remove(String tableName, String columnName, int value) throws SQLException {
 		
 		stmt.executeUpdate("delete from " + tableName + " where " + columnName + " = " + value);
 		System.out.println("deleted entry for " + columnName +" = "+ value + " from table " + tableName);
@@ -65,7 +65,7 @@ public class DBConnection {
 	}
 	
 	
-	public ResultSet getResultSet(String tableName, String columnName, String value) throws SQLException {
+	public ResultSet getResultSet(String tableName, String columnName, int value) throws SQLException {
 
 		ResultSet rs=stmt.executeQuery("select * from " + tableName + " where " + columnName + " = " + value);
 
