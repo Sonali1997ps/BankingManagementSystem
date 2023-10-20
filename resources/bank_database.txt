@@ -18,7 +18,7 @@ CREATE TABLE `loan_type` (
 );
 
 CREATE TABLE `branch` (
-  `branch_id` varchar(50) NOT NULL,
+  `branch_id` int NOT NULL,
   `address` varchar(50) NOT NULL,
   `phone` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`branch_id`)
@@ -46,7 +46,7 @@ CREATE TABLE `customer` (
 CREATE TABLE `accounts` (
   `account_id` int NOT NULL,
   `customer_id` int DEFAULT NULL,
-  `branch_id` varchar(50) DEFAULT NULL,
+  `branch_id` int DEFAULT NULL,
   `opening_date` date DEFAULT NULL,
   `balance` int DEFAULT NULL,
   `account_type_id` int DEFAULT NULL,
@@ -61,11 +61,11 @@ CREATE TABLE `accounts` (
 
 
 CREATE TABLE `loan` (
-  `loan_type_id` int NOT NULL,
-  `customer_id` int DEFAULT NULL,
   `loan_id` int DEFAULT NULL,
+  `customer_id` int DEFAULT NULL,
+  `loan_type_id` int NOT NULL,
   `ammount` int DEFAULT NULL,
-  `branch_id` varchar(50) DEFAULT NULL,
+  `branch_id` int DEFAULT NULL,
   PRIMARY KEY (`loan_type_id`),
   KEY `customer_id` (`customer_id`),
   KEY `branch_id` (`branch_id`),
@@ -86,7 +86,7 @@ CREATE TABLE `employee` (
   `name` varchar(50) DEFAULT NULL,
   `phone` varchar(15) DEFAULT NULL,
   `position` varchar(50) DEFAULT NULL,
-  `branch_id` varchar(50) DEFAULT NULL,
+  `branch_id` int DEFAULT NULL,
   `manager_id` int DEFAULT NULL,
   `login_id` int DEFAULT NULL,
   PRIMARY KEY (`emp_id`),
