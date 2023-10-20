@@ -1,19 +1,18 @@
 package dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import model.Account;
 
 public interface AccountDAO {
 	
-	int createAccount(Account account);
+	int createAccount(Account account) throws SQLException;
 
-	boolean updateAccount(Account account);
+	int updateAccount(String columnName, String value) throws SQLException;
 
-    boolean removeAccount(int id);
-
-    List<Account> getAccountsOfCustomer(int customer_id);
+    void removeAccount(String accountId) throws SQLException;
     
-    Account getAccountDetails(int id);
+    Account getAccountDetails(String accountId) throws SQLException;
 
 }

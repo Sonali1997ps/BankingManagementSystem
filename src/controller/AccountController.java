@@ -6,26 +6,26 @@ import model.Account;
 
 public class AccountController {
 	
-	public Account createAccount(){
-		return null;
+	public int createAccount(){
+		return 0;
 		
 	}
 	
-	public boolean updateAccount(){
-		return false;
+	public int updateAccount(){
+		return 0;
 		
 	}
 	
-	public boolean removeAccount(){
-		return false;
+	public void removeAccount(){
 		
 	}
 	
 	public List<Account> getAccountsOfCustomer(int customer_id) {
+//		To be implemented in service layer
 		return null;
 	}
 	
-	public Account getAccountDetails(int id) {
+	public Account getAccountDetails(String accountId) {
 		return null;
 	}
 }

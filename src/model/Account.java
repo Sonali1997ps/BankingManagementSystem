@@ -5,57 +5,68 @@ import java.sql.Date;
 
 public class Account {
 	
-	private int id;
+	private String id;
 	
-	private Customer customer;
+	private String customerId;
 	
-	private Branch branch;
+	private String branchId;
 	
 	private Date openingDate;
 	
 	private BigDecimal currentBalance;
 	
-	private BigDecimal interestRate;
+	private String accontTypeId;
 
-	public Account(int id, Customer customer, Branch branch, Date openingDate, BigDecimal currentBalance,
-			BigDecimal interestRate) {
+
+	public Account() {
+		super();
+		this.id = "";
+		this.customerId = "";
+		this.branchId = "";
+		this.openingDate = null;
+		this.currentBalance = null;
+		this.accontTypeId = "";
+	}
+
+	public Account(String id, String customerId, String branchId, Date openingDate, BigDecimal currentBalance,
+			String accontTypeId) {
 		super();
 		this.id = id;
-		this.customer = customer;
-		this.branch = branch;
+		this.customerId = customerId;
+		this.branchId = branchId;
 		this.openingDate = openingDate;
 		this.currentBalance = currentBalance;
-		this.interestRate = interestRate;
+		this.accontTypeId = accontTypeId;
 	}
 
 	@Override
 	public String toString() {
-		return "Account [id=" + id + ", customer=" + customer + ", branch=" + branch + ", openingDate=" + openingDate
-				+ ", currentBalance=" + currentBalance + ", interestRate=" + interestRate + "]";
+		return "Account [id=" + id + ", customerId=" + customerId + ", branchId=" + branchId + ", openingDate="
+				+ openingDate + ", currentBalance=" + currentBalance + ", accontTypeId=" + accontTypeId + "]";
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
-	public Customer getCustomer() {
-		return customer;
+	public String getCustomerId() {
+		return customerId;
 	}
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
+	public void setCustomerId(String customerId) {
+		this.customerId = customerId;
 	}
 
-	public Branch getBranch() {
-		return branch;
+	public String getBranchId() {
+		return branchId;
 	}
 
-	public void setBranch(Branch branch) {
-		this.branch = branch;
+	public void setBranchId(String branchId) {
+		this.branchId = branchId;
 	}
 
 	public Date getOpeningDate() {
@@ -74,12 +85,12 @@ public class Account {
 		this.currentBalance = currentBalance;
 	}
 
-	public BigDecimal getInterestRate() {
-		return interestRate;
+	public String getAccontTypeId() {
+		return accontTypeId;
 	}
 
-	public void setInterestRate(BigDecimal interestRate) {
-		this.interestRate = interestRate;
+	public void setAccontTypeId(String accontTypeId) {
+		this.accontTypeId = accontTypeId;
 	}
 	
 }
