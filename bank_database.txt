@@ -7,6 +7,11 @@ CREATE TABLE `account_type` (
 
 
 
+
+
+
+
+
 CREATE TABLE `accounts` (
   `account_id` int NOT NULL,
   `customer_id` int DEFAULT NULL,
@@ -112,4 +117,14 @@ CREATE TABLE `transaction_type` (
   `transaction_type_id` int NOT NULL,
   `description` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`transaction_type_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+
+CREATE TABLE `login` (
+  `password` varchar(50) DEFAULT NULL,
+  `customer_id` int NOT NULL,
+  `role` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`customer_id`),
+  CONSTRAINT `login_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
