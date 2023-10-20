@@ -9,7 +9,7 @@ public interface AccountDAO {
 	
 	int createAccount(Account account) throws SQLException;
 
-	int updateAccount(String columnName, String value) throws SQLException;
+	int updateAccount(String columnName, String value, String branchId) throws SQLException;
 
     void removeAccount(String accountId) throws SQLException;
     

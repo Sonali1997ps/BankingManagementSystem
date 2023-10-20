@@ -1,23 +1,24 @@
 package controller;
 
+import java.sql.SQLException;
 import java.util.List;
 
+import dao.AccountDAO;
+import dao.AccountDAOImpl;
 import model.Account;
 
 public class AccountController {
-	
-	public int createAccount(){
-		return 0;
-		
+	AccountDAO accountDAOImpl = new AccountDAOImpl();
+	public int createAccount(Account account) throws SQLException{
+		return accountDAOImpl.createAccount(account);
 	}
 	
-	public int updateAccount(){
-		return 0;
-		
+	public int updateAccount(String columnName, String value, String accountId) throws SQLException{
+		return accountDAOImpl.updateAccount(columnName, value, accountId);		
 	}
 	
-	public void removeAccount(){
-		
+	public void removeAccount(String accountId) throws SQLException{
+		accountDAOImpl.removeAccount(accountId);
 	}
 	
 	public List<Account> getAccountsOfCustomer(int customer_id) {
@@ -25,7 +26,7 @@ public class AccountController {
 		return null;
 	}
 	
-	public Account getAccountDetails(String accountId) {
-		return null;
+	public Account getAccountDetails(String accountId) throws SQLException {
+		return accountDAOImpl.getAccountDetails(accountId);
 	}
 }
