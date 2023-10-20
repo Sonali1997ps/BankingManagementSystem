@@ -17,6 +17,23 @@ public class Account {
 	
 	private BigDecimal interestRate;
 
+	public Account(int id, Customer customer, Branch branch, Date openingDate, BigDecimal currentBalance,
+			BigDecimal interestRate) {
+		super();
+		this.id = id;
+		this.customer = customer;
+		this.branch = branch;
+		this.openingDate = openingDate;
+		this.currentBalance = currentBalance;
+		this.interestRate = interestRate;
+	}
+
+	@Override
+	public String toString() {
+		return "Account [id=" + id + ", customer=" + customer + ", branch=" + branch + ", openingDate=" + openingDate
+				+ ", currentBalance=" + currentBalance + ", interestRate=" + interestRate + "]";
+	}
+
 	public int getId() {
 		return id;
 	}

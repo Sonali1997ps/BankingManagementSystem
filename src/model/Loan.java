@@ -64,5 +64,21 @@ public class Loan {
 	public void setAmount(BigDecimal amount) {
 		this.amount = amount;
 	}
+
+	public Loan(int id, Customer customer, Branch branch, Date startingDate, Date dueDate, BigDecimal amount) {
+		super();
+		this.id = id;
+		this.customer = customer;
+		this.branch = branch;
+		this.startingDate = startingDate;
+		this.dueDate = dueDate;
+		this.amount = amount;
+	}
+
+	@Override
+	public String toString() {
+		return "Loan [id=" + id + ", customer=" + customer + ", branch=" + branch + ", startingDate=" + startingDate
+				+ ", dueDate=" + dueDate + ", amount=" + amount + "]";
+	}
 	
 }
