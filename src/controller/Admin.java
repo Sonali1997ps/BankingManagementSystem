@@ -24,8 +24,6 @@ import java.util.Scanner;
 
 public class Admin {
 
- 
-
 	private String password;
 
 	private String username;
@@ -34,19 +32,13 @@ public class Admin {
 
 	private static Connection conn;
 
- 
-
 	public static Connection mmysqlconnection(String username, String password) throws SQLException {
-
- 
 
 		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bank", username, password);
 
 		return conn;
 
 	}
-
- 
 
 	public Admin(String username, String password) throws SQLException {
 
@@ -64,19 +56,13 @@ public class Admin {
 
 		System.out.println(this.conn);
 
- 
-
 	}
-
- 
 
 	public void veiw_manager_customer_detalis() throws SQLException {
 
 		int ch;
 
 		Scanner sc = new Scanner(System.in);
-
- 
 
 		System.out.println("1.view manager details 2. veiw customer details");
 
@@ -90,15 +76,11 @@ public class Admin {
 
 			Scanner sc1 = new Scanner(System.in);
 
- 
-
 			System.out.println("enter the manager id to see manager details");
 
 			manager_id = sc1.nextInt();
 
 			Statement stmt = conn.createStatement();
-
- 
 
 			ResultSet ss = stmt.executeQuery("select * from employee where manager_id=" + manager_id);
 
@@ -110,8 +92,6 @@ public class Admin {
 
 						+ ss.getInt(6) + "      " + ss.getInt(7));
 
- 
-
 			}
 
 			break;
@@ -122,15 +102,11 @@ public class Admin {
 
 			Scanner sc11 = new Scanner(System.in);
 
- 
-
 			System.out.println("enter the customer id to see customer details");
 
 			customer_id = sc11.nextInt();
 
 			Statement stmt1 = conn.createStatement();
-
- 
 
 			ResultSet ss1 = stmt1.executeQuery("select * from customer where customer_id=" + customer_id);
 
@@ -142,19 +118,13 @@ public class Admin {
 
 						+ ss1.getString(6) + "      " + ss1.getString(7));
 
- 
-
 			}
 
 			break;
 
 		}
 
- 
-
 	}
-
- 
 
 	public void Add_or_update_bank_branch_details() throws IOException, SQLException {
 
@@ -170,37 +140,25 @@ public class Admin {
 
 		case 1:
 
- 
-
 			PreparedStatement pst = conn.prepareStatement("insert into branch values(?,?,?)");
 
 			PreparedStatement pst1 = conn.prepareStatement("insert into employee(branch_id) values(?)");
-
- 
 
 			// taking values from keyboard
 
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
- 
-
 			System.out.println("Enter branch ID:");
 
 			String branch_id = br.readLine();
-
- 
 
 			System.out.println("Enter address:");
 
 			String address = br.readLine();
 
- 
-
 			System.out.println("Enter phone:");
 
 			String phone = br.readLine();
-
- 
 
 			pst.setString(1, branch_id);
 
@@ -219,8 +177,6 @@ public class Admin {
 			System.out.println("sucessfully added bank branch details");
 
 			break;
-
- 
 
 		case 2:
 
@@ -244,11 +200,7 @@ public class Admin {
 
 						.prepareStatement("update branch set branch_id=? where branch_id=" + branch_id1);
 
- 
-
 				BufferedReader br3 = new BufferedReader(new InputStreamReader(System.in));
-
- 
 
 				System.out.println("Enter branch ID:");
 
@@ -258,11 +210,7 @@ public class Admin {
 
 				pst2.executeUpdate();
 
- 
-
 				System.out.println("sucessfully updates the record");
-
- 
 
 				break;
 
@@ -276,17 +224,11 @@ public class Admin {
 
 						.prepareStatement("update branch set address=? where branch_id=" + branch_id1);
 
- 
-
 				BufferedReader br4 = new BufferedReader(new InputStreamReader(System.in));
-
- 
 
 				System.out.println("Enter address:");
 
 				String address1 = br4.readLine();
-
- 
 
 				pst3.setString(1, address1);
 
@@ -306,17 +248,11 @@ public class Admin {
 
 						.prepareStatement("update branch set phone=? where branch_id=" + branch_id1);
 
- 
-
 				BufferedReader br5 = new BufferedReader(new InputStreamReader(System.in));
-
- 
 
 				System.out.println("Enter phone no.:");
 
 				String phone5 = br5.readLine();
-
- 
 
 				pst4.setString(1, phone5);
 
@@ -328,15 +264,9 @@ public class Admin {
 
 			}
 
- 
-
 		}
 
- 
-
 	}
-
- 
 
 	public void Add_or_update_manager_details() throws SQLException, NumberFormatException, IOException {
 
@@ -344,13 +274,9 @@ public class Admin {
 
 		Scanner sc = new Scanner(System.in);
 
- 
-
 		System.out.println("1.set manager details\n2.update manager id");
 
 		ch = sc.nextInt();
-
- 
 
 		switch (ch) {
 
@@ -364,17 +290,11 @@ public class Admin {
 
 			PreparedStatement pst4 = conn.prepareStatement("update employee set manager_id=? where emp_id=" + id);
 
- 
-
 			BufferedReader br5 = new BufferedReader(new InputStreamReader(System.in));
-
- 
 
 			System.out.println("Enter manager id :");
 
 			int manager_id = Integer.parseInt(br5.readLine());
-
- 
 
 			pst4.setInt(1, manager_id);
 
@@ -394,17 +314,11 @@ public class Admin {
 
 			PreparedStatement pst5 = conn.prepareStatement("update employee set manager_id=? where manager_id=" + id1);
 
- 
-
 			BufferedReader br6 = new BufferedReader(new InputStreamReader(System.in));
-
- 
 
 			System.out.println("Enter manager id :");
 
 			int manager_id1 = Integer.parseInt(br6.readLine());
-
- 
 
 			pst5.setInt(1, manager_id1);
 
@@ -415,8 +329,6 @@ public class Admin {
 			break;
 
 		}
-
- 
 
 	}
 

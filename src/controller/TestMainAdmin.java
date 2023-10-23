@@ -8,17 +8,11 @@ import java.sql.SQLException;
 
 import java.util.Scanner;
 
- 
-
 public class TestMainAdmin {
-
- 
 
 	public static void main(String[] args) throws SQLException, IOException {
 
 		// TODO Auto-generated method stub
-
- 
 
 		Admin ad = new Admin("root", "root");
 
@@ -36,15 +30,11 @@ public class TestMainAdmin {
 
 		case 1:
 
- 
-
 			ad.veiw_manager_customer_detalis();
 
 			break;
 
 		case 2:
-
- 
 
 			ad.Add_or_update_bank_branch_details();
 
