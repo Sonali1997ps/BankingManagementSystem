@@ -17,6 +17,15 @@ public class Account {
 	
 	private BigDecimal interestRate;
 
+	
+	public Account() {
+		this.id = 0;
+		this.customer = null;
+		this.branch = null;
+		this.openingDate = null;
+		this.currentBalance = null;
+		this.interestRate = null;
+	}
 	public Account(int id, Customer customer, Branch branch, Date openingDate, BigDecimal currentBalance,
 			BigDecimal interestRate) {
 		super();
