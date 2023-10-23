@@ -47,27 +47,25 @@ public class Teller {
 //	}
 
 	public void Register_customer() throws SQLException, NumberFormatException, IOException {
-		   Random rand = new Random();
-		   
-	        // Generate random integers in range 0 to 999
+		Random rand = new Random();
+
+		// Generate random integers in range 0 to 999
 		// Statement stmt=conn.createStatement();
 		//
-		DBConnection db=new DBConnection();
+		DBConnection db = new DBConnection();
 		Statement stmt = db.getStmt();
-		int balance=0;
+		int balance = 0;
 //		ResultSet rs=null;
-		Scanner sc  =  new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 
-		//PreparedStatement pst = conn.prepareStatement("insert into customer values(?,?,?,?,?,?,?)");
-	//	PreparedStatement pst1 = conn.prepareStatement("insert into accounts(customer_id,branch_id,account_type_id) values(?,?,?)");
-
-		
-		
-		
+		// PreparedStatement pst = conn.prepareStatement("insert into customer
+		// values(?,?,?,?,?,?,?)");
+		// PreparedStatement pst1 = conn.prepareStatement("insert into
+		// accounts(customer_id,branch_id,account_type_id) values(?,?,?)");
 
 		// rs.next();
 		// taking values from keyboard
-	//	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		// BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		System.out.println("Enter Customer ID:");
 		int customer_id = sc.nextInt();
@@ -95,25 +93,28 @@ public class Teller {
 		System.out.println("Enter branch id:");
 		String branch_id = sc.next();
 		sc.nextLine();
-		
+
 		System.out.println("Enter Account Type Id:");
 		String acc_type = sc.next();
 		sc.nextLine();
-		
-		//DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-		Date registration_Date =Date.valueOf(LocalDate.now());
+
+		// DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		Date registration_Date = Date.valueOf(LocalDate.now());
 //		System.out.println("enter the registration date");
 //		String registration_Date = sc.next();
 //		sc.nextLine();
-		
-		int acc_id= rand.nextInt(100000);
+
+		int acc_id = rand.nextInt(100000);
 		System.out.println(acc_id);
-		
-		
-		stmt.executeUpdate("insert into customer values("+ customer_id+","+customer_id+",'"+password+"','"+name+"','"+phone+"','"+email_id+"','"+registration_Date+"')");
+
+		stmt.executeUpdate("insert into customer values(" + customer_id + "," + customer_id + ",'" + password + "','"
+				+ name + "','" + phone + "','" + email_id + "','" + registration_Date + "')");
 		System.out.println(" Record is inserted in customer");
 
-		stmt.executeUpdate("insert into accounts(account_id,customer_id,branch_id,opening_date,balance,account_type_id) values("+acc_id+",'"+customer_id+"','"+branch_id+"','"+registration_Date+"',"+balance+",'"+acc_type+"')");
+		stmt.executeUpdate(
+				"insert into accounts(account_id,customer_id,branch_id,opening_date,balance,account_type_id) values("
+						+ acc_id + ",'" + customer_id + "','" + branch_id + "','" + registration_Date + "'," + balance
+						+ ",'" + acc_type + "')");
 		System.out.println(" Record is inserted in accounts");
 
 		// The values are stored in local varables, id, name and salary
@@ -123,18 +124,17 @@ public class Teller {
 	}
 
 	public void veiw_customer_information() throws SQLException {
-		DBConnection db=new DBConnection();
-		Statement stmt =db.getStmt();
+		DBConnection db = new DBConnection();
+		Statement stmt = db.getStmt();
 
 		ResultSet ss = stmt.executeQuery("select * from customer;");
 		while (ss.next()) {
-			System.out.println("\t" + ss.getObject(1) + "\t" + ss.getObject(2)+ "\t" + ss.getObject(3) + "\t"
+			System.out.println("\t" + ss.getObject(1) + "\t" + ss.getObject(2) + "\t" + ss.getObject(3) + "\t"
 					+ ss.getObject(4) + "\t" + ss.getObject(5) + "\t" + ss.getObject(6) + "\t" + ss.getObject(7));
 
 		}
 
 	}
-	
 
 //	public void manage_customer_account() throws SQLException, NumberFormatException, IOException {
 //		this.query = query;
@@ -232,4 +232,5 @@ public class Teller {
 //			// stmt.executeUpdate();
 //		}
 //	}
+
 }
