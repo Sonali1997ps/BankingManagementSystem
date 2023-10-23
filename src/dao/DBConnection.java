@@ -16,11 +16,11 @@ public class DBConnection {
 	public DBConnection() throws SQLException {
 		super();
 		String username = "root";
-		String password = "root";
+		String password = "Aug@2023$";
 		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bank", username, password);
 		this.stmt = conn.createStatement();
 		
-		System.out.println("DB Connected");
+		System.out.println("");
 	}
 
 	public Connection getConn() {

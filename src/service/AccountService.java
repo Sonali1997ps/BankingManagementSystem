@@ -70,9 +70,6 @@ public class AccountService {
 	        for(int i=4; i<=columns;i++) {
 			
 	        	System.out.println(rs.getObject(i).toString());
-//			System.out.println(rs.getObject(5).toString());
-//			System.out.println(rs.getObject(6).toString());
-//			System.out.println(rs.getObject(7).toString());
 
 	        }
 		} catch (Exception e) {

@@ -34,7 +34,7 @@ public class Employee extends Person{
 		this.branch = branch;
 	}
 
-	public Employee(int id, String login, int passhash, String name, String phone, String email, Date registrationDate,
+	public Employee(int id, String login, String passhash, String name, String phone, String email, Date registrationDate,
 			String position, Employee manager, Branch branch) {
 		super(id, login, passhash, name, phone, email, registrationDate);
 		this.position = position;
