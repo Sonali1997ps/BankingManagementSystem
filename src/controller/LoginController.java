@@ -142,7 +142,7 @@ public class LoginController {
 									t1.veiw_customer_information();
 									break;
 								case 3:
-									t1.manage_customer_account();
+								//	t1.manage_customer_account();
 								case 4:
 								       continue outer;
 									
@@ -179,7 +179,7 @@ public class LoginController {
 		}	
 		}	
 	}catch(Exception e) {	
-		
+		System.out.println(e.getMessage());
 		System.out.println("Some Error Occured!!");
 		System.out.println("Try Again After Sometime");
 	}
